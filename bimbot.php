@@ -2,8 +2,8 @@
 
 define('TOKEN', '152945078:AAHRok2HuvSYRXxs55RLvVWoa0t3Org8u9c');
 define('API_URL', 'https://api.telegram.org/bot' . TOKEN . '/');
-define('TEST', FALSE);
-define('TEST_MESSAGE', 'pelado');
+define('TEST', 0);
+define('TEST_MESSAGE', 'hola');
 
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
@@ -39,7 +39,7 @@ if (isset($update['message']))
       {
         apiRequestJson("sendSticker", array (
           'chat_id' => $chat_id,
-          'sticker' => 'https://web.telegram.org/temporary/sticker_' . $aux[1] . '.webp';
+          'sticker' => 'sticker_' . $aux[1] . '.webp'
         ));
       }
       else
