@@ -24,7 +24,7 @@ if (isset($update['message']))
   $message = $update['message'];
   $message_id = $message['message_id'];
   $chat_id = $message['chat']['id'];
-  $text = $message['text'];
+  $text = strtolower($message['text']);
   $response = handleText($text);
   if ($response)
   {
@@ -79,7 +79,7 @@ function handleTextWords($words)
     'ipad? si el que se gano el hijo de puta de belilos' => array ('ipad'),
     'aguante bluesmart' => array ('bluesmart'),
     'con esta pelotudo' => array ('con', 'que'),
-    'sabes donde te podes meter el corazoncito?' => array ("\xE2\x9D\xA4"),
+    'sabes donde te podes meter el corazoncito?' => array ('❤'),
   );
   foreach ($needles as $message => $needle)
   {
@@ -152,11 +152,11 @@ function handleText($text)
     return substr($text, 11);
   }
   $words = explode(' ', $text);
-  if (count($words) > 1)
+  if (count($words))
   {
     $response = handleTextWords($words);
   }
-  else
+  if (!$response)
   {
     $response = handleTextSingleWord($text);
   }
