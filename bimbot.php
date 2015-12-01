@@ -61,6 +61,9 @@ function handleTextWords($words)
     'la que le gusta a tu hermana' => array ('marihuana'),
     '%name%' => array ('el', 'mas', 'puto'),
     'mmmmmnnnnnnnnnmusaaaraña musaraña musaraña musaraña' => array ('musa'),
+    'que sera que sera de la vida del gran yamid' => array ('que', 'sera'),
+    'el tunel de monroe es una maaaaaasssssssaaa' => array ('monroe'),
+    'ipad? si el que se gano el hijo de puta de belilos' => array ('ipad'),
   );
   foreach ($needles as $message => $needle)
   {
