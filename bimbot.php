@@ -76,6 +76,7 @@ function handleTextWords($words)
     'que sera que sera de la vida del gran yamid' => array ('que', 'sera'),
     'el tunel de monroe es una maaaaaasssssssaaa' => array ('monroe'),
     'ipad? si el que se gano el hijo de puta de belilos' => array ('ipad'),
+    'aguante bluesmart' => array ('bluesmart'),
   );
   foreach ($needles as $message => $needle)
   {
