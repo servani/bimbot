@@ -2,7 +2,7 @@
 
 define('TOKEN', '152945078:AAHRok2HuvSYRXxs55RLvVWoa0t3Org8u9c');
 define('API_URL', 'https://api.telegram.org/bot' . TOKEN . '/');
-define('TEST', 1);
+define('TEST', FALSE);
 define('TEST_MESSAGE', 'pelado');
 
 $content = file_get_contents("php://input");
