@@ -2,8 +2,8 @@
 
 define('TOKEN', '152945078:AAHRok2HuvSYRXxs55RLvVWoa0t3Org8u9c');
 define('API_URL', 'https://api.telegram.org/bot' . TOKEN . '/');
-define('TEST', FALSE);
-define('TEST_MESSAGE', 'gracias');
+define('TEST', 1);
+define('TEST_MESSAGE', 'pelado');
 
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
@@ -34,10 +34,21 @@ if (isset($update['message']))
     }
     else
     {
-      apiRequestJson("sendMessage", array (
-        'chat_id' => $chat_id,
-        'text' => $response
-      ));
+      $aux = explode(':', $response);
+      if (count($aux) === 2 && $aux[0] === 'sticker')
+      {
+        apiRequestJson("sendSticker", array (
+          'chat_id' => $chat_id,
+          'sticker' => $aux[1]
+        ));
+      }
+      else
+      {
+        apiRequestJson("sendMessage", array (
+          'chat_id' => $chat_id,
+          'text' => $response
+        ));
+      }
     }
   }
 }
@@ -95,6 +106,7 @@ function handleTextSingleWord($word)
     'mct' => 'viva el mct',
     'hola' => 'holis',
     'holi' => 'holis',
+    'pelado' => 'sticker:260429632665289106'
   );
   foreach ($magic_words as $needle => $message)
   {
