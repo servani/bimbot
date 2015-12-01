@@ -39,7 +39,7 @@ if (isset($update['message']))
       {
         apiRequestJson("sendSticker", array (
           'chat_id' => $chat_id,
-          'sticker' => $aux[1]
+          'sticker' => 'sticker_' . $aux[1] . '.webp';
         ));
       }
       else
