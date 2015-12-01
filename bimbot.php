@@ -60,7 +60,7 @@ function handleTextWords($words)
     'dale men, hasta yo tengo foto de perfil' => array ('belilos', 'foto'),
     'yo me re prendo a una hackathon eh' => array ('hackathon'),
     'belilos es un cagón' => array ('belilos'),
-    '\xE2\x9D\xA4' => array ('tkm'),
+    "\xE2\x9D\xA4" => array ('tkm'),
     'de nada ameo' => array ('gracias'),
     'viva el mct' => array ('mct'),
     '%hello%' => array ('bimbo'),
@@ -133,7 +133,7 @@ function handleTextSingleWord($word)
     'holi' => 'holis',
     'nada' => 'AH BUENJO mejor asi hijo deputa',
     'pelado' => 'sticker:260429632665289106',
-    'tkm' => "\xE2\x9D\xA4"
+    'tkm' => "\xE2\x9D\xA4",
   );
   foreach ($magic_words as $needle => $message)
   {
@@ -147,6 +147,10 @@ function handleTextSingleWord($word)
 
 function handleText($text)
 {
+  if (strpos("simon dice", $text) === 0)
+  {
+    return substr($text, 11);
+  }
   $words = explode(' ', $text);
   if (count($words) > 1)
   {
