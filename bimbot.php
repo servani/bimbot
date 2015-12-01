@@ -37,9 +37,10 @@ if (isset($update['message']))
       $aux = explode(':', $response);
       if (count($aux) === 2 && $aux[0] === 'sticker')
       {
+        // NO ANDA
         apiRequestJson("sendSticker", array (
           'chat_id' => $chat_id,
-          'sticker' => 260429632665289106
+          'sticker' => $aux[1] // no se como mierda hay que pasarle el file_id del sticker ni de donde sacarlo
         ));
       }
       else
