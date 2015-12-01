@@ -62,7 +62,7 @@ function handleTextWords($words)
     'belilos es un cagón' => array ('belilos'),
     'de nada ameo' => array ('gracias'),
     'viva el mct' => array ('mct'),
-    'que onda wachos' => array ('bimbo'),
+    '%hello%' => array ('bimbo'),
     'que te pasa con fargo pelotudo' => array ('fargo'),
     'https://github.com/servani/bimbot' => array ('repo'),
     'la que le gusta al pelado miola' => array ('pija'),
@@ -77,20 +77,41 @@ function handleTextWords($words)
     'el tunel de monroe es una maaaaaasssssssaaa' => array ('monroe'),
     'ipad? si el que se gano el hijo de puta de belilos' => array ('ipad'),
     'aguante bluesmart' => array ('bluesmart'),
+    'con esta pelotudo' => array ('con', 'que'),
   );
   foreach ($needles as $message => $needle)
   {
     if (count(array_intersect($needle, $words)) === count($needle))
     {
+      $names = array (
+        'beli', 'miola', 'pato', 'guille', 'santi',
+        'facu', 'fede', 'la musa', 'luigi', 'erni',
+        'el forro de schattenhofer'
+      );
+      shuffle($names);
       if ($message === "%name%")
       {
-        $names = array (
-          'beli', 'miola', 'pato', 'guille', 'santi',
-          'facu', 'fede', 'la musa', 'luigi', 'erni',
-          'el forro de schattenhofer'
-        );
-        shuffle($names);
         $message = $names[0];
+      }
+      elseif ($message === "%hello%")
+      {
+        $hellos = array (
+          'que onda wachos',
+          'que onda loco',
+          'que pasa',
+          'me llamaste? hijo de puta?',
+          'me tienen los huevos por el piso',
+          'uhmmm',
+          'que pesados q estan loco vayansen a la concha de su hermana',
+          'estaba pensando en ' . $names[0],
+          'ke',
+          'basta loco',
+          'che ' . $names[0] . ' necesito que me des una mano con algo',
+          'bimbbobim',
+          'dale loco mentanle mano al codigo que me hinche los huevos de decir siempre lo mismo'
+        );
+        shuffle($hellos);
+        $message = $hellos[0];
       }
       return $message;
     }
@@ -108,6 +129,7 @@ function handleTextSingleWord($word)
     'mct' => 'viva el mct',
     'hola' => 'holis',
     'holi' => 'holis',
+    'nada' => 'AH BUENJO mejor asi hijo deputa',
     'pelado' => 'sticker:260429632665289106'
   );
   foreach ($magic_words as $needle => $message)
