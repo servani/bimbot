@@ -60,6 +60,7 @@ function handleTextWords($words)
     'estoy re manija vamo a lo de facu a fumanchea' => array ('fumar'),
     'la que le gusta a tu hermana' => array ('marihuana'),
     '%name%' => array ('el', 'mas', 'puto'),
+    'mmmmmnnnnnnnnnmusaaaraña musaraña musaraña musaraña' => array ('musa'),
   );
   foreach ($needles as $message => $needle)
   {
