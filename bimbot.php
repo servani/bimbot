@@ -130,7 +130,8 @@ function handleTextSingleWord($word)
     'hola' => 'holis',
     'holi' => 'holis',
     'nada' => 'AH BUENJO mejor asi hijo deputa',
-    'pelado' => 'sticker:260429632665289106'
+    'pelado' => 'sticker:260429632665289106',
+    'emoji' => "u'\U000026C4'"
   );
   foreach ($magic_words as $needle => $message)
   {
