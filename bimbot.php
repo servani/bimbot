@@ -80,6 +80,7 @@ function handleTextWords($words)
     'aguante bluesmart' => array ('bluesmart'),
     'con esta pelotudo' => array ('con', 'que'),
     'sabes donde te podes meter el corazoncito?' => array ('❤'),
+    'nada re tranki aca en pija' => array ('que', 'pasando'),
   );
   foreach ($needles as $message => $needle)
   {
@@ -124,7 +125,7 @@ function handleTextWords($words)
 function handleTextSingleWord($word)
 {
   $magic_words = array (
-    'jajaja' => 'jajaajajja',
+    'jajaja' => '%haha%',
     'JAJA' => 'JAJAJAJAJJA',
     'bimbo' => 'que te pasa pelotudo',
     'gracias' => 'de nada ameo',
@@ -139,6 +140,23 @@ function handleTextSingleWord($word)
   {
     if (strpos($word, $needle) !== FALSE)
     {
+      if ($message === "%haha%")
+      {
+        $haha = array (
+          'jajajaja',
+          'jjajajajaj',
+          'hahahahaha',
+          'jiji',
+          'JAJAJAJAJ AH RE LOKO',
+          'jajajaj ah re',
+          'haha',
+          'jajajjaj',
+          'basat',
+          'basta no es gracioso',
+        );
+        shuffle($haha);
+        $message = $haha[0];
+      }
       return $message;
     }
   }
