@@ -39,7 +39,9 @@ if (isset($update['message']))
       {
         apiRequestJson("sendSticker", array (
           'chat_id' => $chat_id,
-          'sticker' => 'filesystem:https://web.telegram.org/temporary/sticker_' . $aux[1] . '.webp'
+          'sticker' => array (
+            'file_id' => $aux[1]
+          )
         ));
       }
       else
