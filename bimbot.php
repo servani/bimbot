@@ -147,7 +147,7 @@ function handleTextSingleWord($word)
 
 function handleText($text)
 {
-  if (strpos("simon dice", $text) === 0)
+  if (strpos($text, "simon dice") === 0)
   {
     return substr($text, 11);
   }
