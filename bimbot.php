@@ -79,7 +79,7 @@ function handleTextWords($words)
     'ipad? si el que se gano el hijo de puta de belilos' => array ('ipad'),
     'aguante bluesmart' => array ('bluesmart'),
     'con esta pelotudo' => array ('con', 'que'),
-    'sabes donde te podes meter el corazoncito?' => array ('\xE2\x9D\xA4'),
+    'sabes donde te podes meter el corazoncito?' => array ("\xE2\x9D\xA4"),
   );
   foreach ($needles as $message => $needle)
   {
@@ -133,7 +133,7 @@ function handleTextSingleWord($word)
     'holi' => 'holis',
     'nada' => 'AH BUENJO mejor asi hijo deputa',
     'pelado' => 'sticker:260429632665289106',
-    'tkm' => '\xE2\x9D\xA4'
+    'tkm' => "\xE2\x9D\xA4"
   );
   foreach ($magic_words as $needle => $message)
   {
