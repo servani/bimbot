@@ -66,7 +66,7 @@ function handleTextWords($words)
     '%hello%' => array ('bimbo'),
     'que te pasa con fargo pelotudo' => array ('fargo'),
     'https://github.com/servani/bimbot' => array ('repo'),
-    'la que le gusta al pelado miola' => array ('pija'),
+    'ME LOS VOY A COJER A TODOS PUTOS DE MIERDA Especialmente al que tiene AB de foto de perfil, Como les gusta la pija eh!' => array ('pija'),
     'vamo a lo de piche a fumar unos' => array ('droga'),
     'vamo a lo de pichettoooo a fumar unos' => array ('porro'),
     'denme un ak47 ' => array ('faso'),
