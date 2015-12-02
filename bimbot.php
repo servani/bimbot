@@ -81,6 +81,7 @@ function handleTextWords($words)
     'con esta pelotudo' => array ('con', 'que'),
     'sabes donde te podes meter el corazoncito?' => array ('❤'),
     'nada re tranki aca en pija' => array ('que', 'pasando'),
+    'ni bigote ni manco, CRISTINA LOCO PORQUE NESTOR NO SE MURIO LO LLEVO EN EL CORAZON VIVA PERON HIJOS DE PUTA' => array ('macri', 'scioli'),
   );
   foreach ($needles as $message => $needle)
   {
