@@ -57,6 +57,8 @@ if (isset($update['message']) && wantToAnswer())
 function handleTextWords($words)
 {
   $needles = array (
+    '%mood%' => array ('como', 'te', 'sentis'),
+    '%setmood%' => array ('/setmood'),
     'que te pasa? te voy a cagar a trompadas y despues te violo!' => array ('oso', 'forro'),
     'dale men, hasta yo tengo foto de perfil' => array ('belilos', 'foto'),
     'yo me re prendo a una hackathon eh' => array ('hackathon'),
@@ -100,6 +102,17 @@ function handleTextWords($words)
       if ($message === "%name%")
       {
         $message = $names[0];
+      }
+      elseif ($message === "%setmood%" && $words[0] === '/setmood')
+      {
+        unset($words[0]);
+        $mood = implode(' ', $words);
+        setMood($mood);
+        $message = 'ok';
+      }
+      elseif ($message === "%mood%")
+      {
+        $message = getMood();
       }
       elseif ($message === "%hello%")
       {
@@ -258,4 +271,18 @@ function exec_curl_request($handle)
 function wantToAnswer()
 {
   return rand() % 2; // 50% prob
+}
+
+function setMood($mood)
+{
+  $mem = new Memcached();
+  $mem->addServer("127.0.0.1", 11211);
+  $mem->set('mood', $mood);
+}
+
+function getMood()
+{
+  $mem = new Memcached();
+  $mem->addServer("127.0.0.1", 11211);
+  return $mem->get('mood') ?: 'bien';
 }
