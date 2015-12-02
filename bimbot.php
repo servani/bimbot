@@ -270,7 +270,7 @@ function exec_curl_request($handle)
 
 function wantToAnswer()
 {
-  return rand() % 2; // 50% prob
+  return getMood() !== 'mute';
 }
 
 function setMood($mood)
