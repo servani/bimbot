@@ -112,6 +112,7 @@ function handleTextWords($words)
           'basta loco',
           'che ' . $names[0] . ' necesito que me des una mano con algo',
           'bimbbobim',
+          'shicos hishe un shcript en corshetes adivinen quein soy',
           'dale loco mentanle mano al codigo que me hinche los huevos de decir siempre lo mismo'
         );
         shuffle($hellos);
