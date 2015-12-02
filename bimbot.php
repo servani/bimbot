@@ -83,6 +83,7 @@ function handleTextWords($words)
     'sabes donde te podes meter el corazoncito?' => array ('❤'),
     'nada re tranki aca en pija' => array ('que', 'pasando'),
     'ni bigote ni manco, CRISTINA LOCO PORQUE NESTOR NO SE MURIO LO LLEVO EN EL CORAZON VIVA PERON HIJOS DE PUTA' => array ('macri', 'scioli'),
+    'Mal, lo extraño a mescher, me hacia cosquillas en la pija con la barbita' => array ('animo')
   );
   foreach ($needles as $message => $needle)
   {
