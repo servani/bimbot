@@ -84,7 +84,8 @@ function handleTextWords($words)
     'nada re tranki aca en pija' => array ('que', 'pasando'),
     'ni bigote ni manco, CRISTINA LOCO PORQUE NESTOR NO SE MURIO LO LLEVO EN EL CORAZON VIVA PERON HIJOS DE PUTA' => array ('macri', 'scioli'),
     'Mal, lo extraño a mescher, me hacia cosquillas en la pija con la barbita' => array ('como', 'animo'),
-    'No, me puse del orto, todo el dia me andan haciendo decir pija, quien tiene faso?' => array ('cuenta')
+    'No, me puse del orto, todo el dia me andan haciendo decir pija, quien tiene faso?' => array ('cuenta'),
+    'Porque no me chupas la pija, forro' => array ('oso', 'mierda')
   );
   foreach ($needles as $message => $needle)
   {
