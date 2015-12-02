@@ -19,14 +19,14 @@ if (TEST)
   );
 }
 
-if (isset($update['message']) && wantToAnswer())
+if (isset($update['message']))
 {
   $message = $update['message'];
   $message_id = $message['message_id'];
   $chat_id = $message['chat']['id'];
   $text = strtolower($message['text']);
   $response = handleText($text);
-  if ($response)
+  if ($response && !isMuted())
   {
     if (TEST)
     {
@@ -151,6 +151,8 @@ function handleTextSingleWord($word)
     'mct' => 'viva el mct',
     'hola' => 'holis',
     'holi' => 'holis',
+    '/unmute' => 'SOY LIBREEEEEEE',
+    '/mute' => '',
     'nada' => 'AH BUENJO mejor asi hijo deputa',
     'pelado' => 'sticker:260429632665289106',
     'tkm' => "\xE2\x9D\xA4",
@@ -159,7 +161,15 @@ function handleTextSingleWord($word)
   {
     if (strpos($word, $needle) !== FALSE)
     {
-      if ($message === "%haha%")
+      if ($needle === "/mute")
+      {
+        mute();
+      }
+      elseif ($needle === "/unmute")
+      {
+        unmute();
+      }
+      elseif ($message === "%haha%")
       {
         $haha = array (
           'jajajaja',
@@ -268,9 +278,25 @@ function exec_curl_request($handle)
   return $response;
 }
 
-function wantToAnswer()
+function isMuted()
 {
-  return getMood() !== 'mute';
+  $mem = new Memcached();
+  $mem->addServer("127.0.0.1", 11211);
+  return $mem->get('mute');
+}
+
+function mute()
+{
+  $mem = new Memcached();
+  $mem->addServer("127.0.0.1", 11211);
+  return $mem->set('mute', 1);
+}
+
+function unmute()
+{
+  $mem = new Memcached();
+  $mem->addServer("127.0.0.1", 11211);
+  return $mem->set('mute', 0);
 }
 
 function setMood($mood)
