@@ -57,6 +57,7 @@ if (isset($update['message']))
 function handleTextWords($words)
 {
   $needles = array (
+    'que te pasa? te voy a cagar a trompadas y despues te violo!' => array ('oso', 'forro'),
     'dale men, hasta yo tengo foto de perfil' => array ('belilos', 'foto'),
     'yo me re prendo a una hackathon eh' => array ('hackathon'),
     'belilos es un cagón' => array ('belilos'),
