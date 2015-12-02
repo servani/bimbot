@@ -257,5 +257,5 @@ function exec_curl_request($handle)
 
 function wantToAnswer()
 {
-  return !(rand(1,3) % 3); // 33% prob
+  return rand() % 2; // 50% prob
 }
