@@ -57,7 +57,6 @@ if (isset($update['message']))
 function handleTextWords($words)
 {
   $needles = array (
-    'que te pasa? te voy a cagar a trompadas y despues te violo!' => array ('oso', 'forro'),
     'dale men, hasta yo tengo foto de perfil' => array ('belilos', 'foto'),
     'yo me re prendo a una hackathon eh' => array ('hackathon'),
     'belilos es un cagón' => array ('belilos'),
@@ -67,7 +66,7 @@ function handleTextWords($words)
     '%hello%' => array ('bimbo'),
     'que te pasa con fargo pelotudo' => array ('fargo'),
     'https://github.com/servani/bimbot' => array ('repo'),
-    'ME LOS VOY A COJER A TODOS PUTOS DE MIERDA Especialmente al que tiene AB de foto de perfil, Como les gusta la pija eh!' => array ('pija'),
+    'Queres pija? Sos putito eh...' => array ('pija'),
     'vamo a lo de piche a fumar unos' => array ('droga'),
     'vamo a lo de pichettoooo a fumar unos' => array ('porro'),
     'denme un ak47 ' => array ('faso'),
