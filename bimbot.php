@@ -19,7 +19,7 @@ if (TEST)
   );
 }
 
-if (isset($update['message']))
+if (isset($update['message']) && wantToAnswer())
 {
   $message = $update['message'];
   $message_id = $message['message_id'];
@@ -253,4 +253,9 @@ function exec_curl_request($handle)
     $response = $response['result'];
   }
   return $response;
+}
+
+function wantToAnswer()
+{
+  return !(rand(1,3) % 3); // 33% prob
 }
