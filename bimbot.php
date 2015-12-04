@@ -25,7 +25,8 @@ if (isset($update['message']))
   $message_id = $message['message_id'];
   $chat_id = $message['chat']['id'];
   $text = strtolower($message['text']);
-  $response = handleText($text);
+  $from = $message['from']['first_name'];
+  $response = handleText($text, $from);
   if ($response && !isMuted())
   {
     if (TEST)
@@ -54,7 +55,7 @@ if (isset($update['message']))
   }
 }
 
-function handleTextWords($words)
+function handleTextWords($words, $from)
 {
   $needles = array (
     '%mood%' => array ('como', 'te', 'sentis'),
@@ -67,6 +68,7 @@ function handleTextWords($words)
     'de nada ameo' => array ('gracias'),
     'viva el mct' => array ('mct'),
     '%hello%' => array ('bimbo'),
+    '%love%' => array ('te', 'amo'),
     'que te pasa con fargo pelotudo' => array ('fargo'),
     'https://github.com/servani/bimbot' => array ('repo'),
     'Queres pija? Sos putito eh...' => array ('pija'),
@@ -102,6 +104,10 @@ function handleTextWords($words)
       if ($message === "%name%")
       {
         $message = $names[0];
+      }
+      elseif ($message === "%love%")
+      {
+        $message = 'yo te amo a vos ' . strtolower($from);
       }
       elseif ($message === "%setmood%" && $words[0] === '/setmood')
       {
@@ -192,7 +198,7 @@ function handleTextSingleWord($word)
   return false;
 }
 
-function handleText($text)
+function handleText($text, $from)
 {
   if (strpos($text, "simon dice") === 0)
   {
@@ -201,7 +207,7 @@ function handleText($text)
   $words = explode(' ', $text);
   if (count($words))
   {
-    $response = handleTextWords($words);
+    $response = handleTextWords($words, $from);
   }
   if (!$response)
   {
