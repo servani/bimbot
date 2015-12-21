@@ -60,7 +60,7 @@ function handleTextWords($words, $from)
   $needles = array (
     '%mood%' => array ('como', 'te', 'sentis'),
     '%setmood%' => array ('/setmood'),
-    'que te pasa? te voy a cagar a trompadas y despues te violo!' => array ('oso', 'forro'),
+    'forro sos vos hijode putea' => array ('oso', 'forro'),
     'dale men, hasta yo tengo foto de perfil' => array ('belilos', 'foto'),
     'yo me re prendo a una hackathon eh' => array ('hackathon'),
     'belilos es un cagón' => array ('belilos'),
@@ -68,10 +68,12 @@ function handleTextWords($words, $from)
     'de nada ameo' => array ('gracias'),
     'viva el mct' => array ('mct'),
     '%hello%' => array ('bimbo'),
+    '%hello%' => array ('hola', 'bimbo'),
+    '%song%' => array ('cantate'),
     '%love%' => array ('te', 'amo'),
     'que te pasa con fargo pelotudo' => array ('fargo'),
     'https://github.com/servani/bimbot' => array ('repo'),
-    'Queres pija? Sos putito eh...' => array ('pija'),
+    '%pija%' => array ('pija'),
     'vamo a lo de piche a fumar unos' => array ('droga'),
     'vamo a lo de pichettoooo a fumar unos' => array ('porro'),
     'denme un ak47 ' => array ('faso'),
@@ -87,9 +89,7 @@ function handleTextWords($words, $from)
     'sabes donde te podes meter el corazoncito?' => array ('❤'),
     'nada re tranki aca en pija' => array ('que', 'pasando'),
     'ni bigote ni manco, CRISTINA LOCO PORQUE NESTOR NO SE MURIO LO LLEVO EN EL CORAZON VIVA PERON HIJOS DE PUTA' => array ('macri', 'scioli'),
-    'Mal, lo extraño a mescher, me hacia cosquillas en la pija con la barbita' => array ('como', 'animo'),
-    'No, me puse del orto, todo el dia me andan haciendo decir pija, quien tiene faso?' => array ('cuenta'),
-    'Porque no me chupas la pija, forro' => array ('oso', 'mierda')
+    'no soy un oso de mierda, soy un oso barrilete y vendehumo iiiiiiiiiiiiaja' => array ('oso', 'mierda')
   );
   foreach ($needles as $message => $needle)
   {
@@ -108,6 +108,10 @@ function handleTextWords($words, $from)
       elseif ($message === "%love%")
       {
         $message = 'yo te amo a vos ' . strtolower($from);
+      }
+      elseif ($message === "%pija%")
+      {
+        $message = 'pija? a ' . strtolower($from) . ' le gusta la pija';
       }
       elseif ($message === "%setmood%" && $words[0] === '/setmood')
       {
@@ -137,6 +141,19 @@ function handleTextWords($words, $from)
           'bimbbobim',
           'shicos hishe un shcript en corshetes adivinen quein soy',
           'dale loco mentanle mano al codigo que me hinche los huevos de decir siempre lo mismo'
+        );
+        shuffle($hellos);
+        $message = $hellos[0];
+      }
+      elseif ($message === "%song%")
+      {
+        $hellos = array (
+          'tu novia puta con mi pingo se ahooga y vos no decis nada pporque sooo un toga recatate giiiiil',
+          'vamoooos vamoos a bailaaaaar vamoos a bailar hasta la madrugada dejate llevaaaar',
+          'tetereré tere tete tetereré tere re re',
+          'tchê tcherere tchê tchê, tcherere tchê tchê, tcherere tchê tchê, tchereretchê tchê, tchê, tchê, el oso bimbo e você',
+          'nossa, nossa assim você me mata ai se eu te pego, ai ai se eu te pego',
+          'chora, me liga implora o meu beijo de novo me pede socorro'
         );
         shuffle($hellos);
         $message = $hellos[0];
