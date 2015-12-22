@@ -68,7 +68,6 @@ function handleTextWords($words, $from)
     'de nada ameo' => array ('gracias'),
     'viva el mct' => array ('mct'),
     '%hello%' => array ('bimbo'),
-    '%hello%' => array ('hola', 'bimbo'),
     '%song%' => array ('cantate'),
     '%love%' => array ('te', 'amo'),
     'que te pasa con fargo pelotudo' => array ('fargo'),
