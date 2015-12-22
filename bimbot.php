@@ -111,7 +111,7 @@ function handleTextWords($words, $from)
       }
       elseif ($message === "%pija%")
       {
-        $message = 'pija? a ' . strtolower($from) . ' le gusta la pija';
+        $message = 'pija? a ' . $names[0] . ' le gusta la pija';
       }
       elseif ($message === "%setmood%" && $words[0] === '/setmood')
       {
